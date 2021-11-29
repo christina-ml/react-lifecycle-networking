@@ -21,19 +21,7 @@ class App extends Component {
   componentDidMount(){
     console.log("Trigger: On Mount");
 
-    fetch("https://dog.ceo/api/breeds/image/random")
-      .then((res)=>{
-        return res.json();
-      }).then((data)=>{
-        /*
-          - How do I get this data in the return? You have to use state.
-          - data.message is what we want to get the image.
-        */
-        // console.log(data)
-        this.setState({
-          dogImgUrl: data.message,
-        })
-      })
+    this.handleLoadNewDog();
   }
 
   /* Doesn't happen on the initial load, but every subsequent load. */
@@ -57,6 +45,26 @@ class App extends Component {
   //   })
   // }
 
+  /* 
+  - Created a method that works when we click the button, and also happens on the mounting ^ (above) 
+  - it's a helper method, being used in `handleLoadNewDog()` and also `componentDidMount()`
+  */
+  handleLoadNewDog=()=>{
+    fetch("https://dog.ceo/api/breeds/image/random")
+      .then((res)=>{
+        return res.json();
+      }).then((data)=>{
+        /*
+          - How do I get this data in the return? You have to use state.
+          - data.message is what we want to get the image.
+        */
+        // console.log(data)
+        this.setState({
+          dogImgUrl: data.message,
+        })
+      })
+  }
+
   render(){
     /* 
     - think about WHEN this runs. The act of rendering.
@@ -67,8 +75,10 @@ class App extends Component {
     return(
       <div>
         <h1>Random Dog Pictures v1</h1>
-          <img src={this.state.dogImgUrl} alt="Random Dog Image" />
-
+        <div>
+          <img width="400px" src={this.state.dogImgUrl} alt="Random Dog Image" />
+        </div>
+        <button onClick={this.handleLoadNewDog}>Load New Dog</button>
 
         {/* <h1>Hello World</h1>
         <div>{this.state.count}</div>
