@@ -6,7 +6,9 @@ class App extends Component {
     super();
 
     this.state = {
-      count: 0,
+      dogImgUrl: '',
+
+      // count: 0,
     }
     /* Constructor gets loaded first, even before render. */
     console.log("Trigger: Constructor");
@@ -18,6 +20,12 @@ class App extends Component {
   */
   componentDidMount(){
     console.log("Trigger: On Mount");
+    fetch("https://dog.ceo/api/breeds/image/random")
+      .then((res)=>{
+        return res.json();
+      }).then((data)=>{
+        console.log(data);
+      })
   }
 
   /* Doesn't happen on the initial load, but every subsequent load. */
@@ -35,11 +43,11 @@ class App extends Component {
     console.log("Trigger: On Unmount");
   }
 
-  handleIncrement=()=>{
-    this.setState({
-      count: this.state.count + 1,
-    })
-  }
+  // handleIncrement=()=>{
+  //   this.setState({
+  //     count: this.state.count + 1,
+  //   })
+  // }
 
   render(){
     /* 
@@ -50,10 +58,14 @@ class App extends Component {
 
     return(
       <div>
-        <h1>Hello World</h1>
+        <h1>Random Dog Pictures v1</h1>
+
+
+
+        {/* <h1>Hello World</h1>
         <div>{this.state.count}</div>
         <button onClick={this.handleIncrement}>Click Me</button>
-        {/* <input onChange={this.handleInputChange} /> */}
+        <input onChange={this.handleInputChange} /> */}
       </div>
     )
   }
