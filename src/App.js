@@ -8,6 +8,8 @@ class App extends Component {
     this.state = {
       count: 0,
     }
+    /* Constructor gets loaded first, even before render. */
+    console.log("Trigger: Constructor");
   }
 
   /* 
@@ -15,7 +17,11 @@ class App extends Component {
   - NOT going to cause an infinite loop.
   */
   componentDidMount(){
-    console.log("Trigger: On Mount")
+    console.log("Trigger: On Mount");
+  }
+
+  componentDidUpdate(){
+    console.log("Trigger: On Update");
   }
 
   handleIncrement=()=>{
@@ -29,7 +35,7 @@ class App extends Component {
     - think about WHEN this runs. The act of rendering.
     - The page can be re-rendered on button click, when this.setState causes a re-render
     */
-    console.log("Trigger: Render")
+    console.log("Trigger: Render");
 
     return(
       <div>
