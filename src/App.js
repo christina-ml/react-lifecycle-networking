@@ -20,8 +20,19 @@ class App extends Component {
     console.log("Trigger: On Mount");
   }
 
+  /* Doesn't happen on the initial load, but every subsequent load. */
   componentDidUpdate(){
     console.log("Trigger: On Update");
+  }
+
+  /*
+  - Remove things that are running.
+  - Constant connections, that you'd want to stop.
+  - Mostly used for efficiency
+  - hard to show this, since we're not running anything in our code that needs to be unmounted.
+  */
+  componentWillUnmount(){
+    console.log("Trigger: On Unmount");
   }
 
   handleIncrement=()=>{
