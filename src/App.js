@@ -53,6 +53,7 @@ class App extends Component {
         <h1>Hello World</h1>
         <div>{this.state.count}</div>
         <button onClick={this.handleIncrement}>Click Me</button>
+        {/* <input onChange={this.handleInputChange} /> */}
       </div>
     )
   }
