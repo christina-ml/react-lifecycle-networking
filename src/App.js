@@ -67,7 +67,7 @@ class App extends Component {
     return(
       <div>
         <h1>Random Dog Pictures v1</h1>
-
+          <img src={this.state.dogImgUrl} alt="Random Dog Image" />
 
 
         {/* <h1>Hello World</h1>
