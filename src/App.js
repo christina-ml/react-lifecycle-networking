@@ -20,11 +20,19 @@ class App extends Component {
   */
   componentDidMount(){
     console.log("Trigger: On Mount");
+
     fetch("https://dog.ceo/api/breeds/image/random")
       .then((res)=>{
         return res.json();
       }).then((data)=>{
-        console.log(data);
+        /*
+          - How do I get this data in the return? You have to use state.
+          - data.message is what we want to get the image.
+        */
+        // console.log(data)
+        this.setState({
+          dogImgUrl: data.message,
+        })
       })
   }
 
