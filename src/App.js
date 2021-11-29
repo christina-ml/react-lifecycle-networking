@@ -10,7 +10,10 @@ class App extends Component {
     }
   }
 
-  /* Want something to happen only ONCE, when the page initially loads. And that's it. */
+  /* 
+  - Want something to happen only ONCE, when the page initially loads. And that's it.
+  - NOT going to cause an infinite loop.
+  */
   componentDidMount(){
     console.log("Trigger: On Mount")
   }
@@ -22,8 +25,10 @@ class App extends Component {
   }
 
   render(){
-
-    /* think about WHEN this runs. The act of rendering. */
+    /* 
+    - think about WHEN this runs. The act of rendering.
+    - The page can be re-rendered on button click, when this.setState causes a re-render
+    */
     console.log("Trigger: Render")
 
     return(
