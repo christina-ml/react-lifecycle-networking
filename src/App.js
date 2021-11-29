@@ -17,6 +17,10 @@ class App extends Component {
   }
 
   render(){
+
+    /* think about WHEN this runs. The act of rendering. */
+    console.log("Trigger")
+
     return(
       <div>
         <h1>Hello World</h1>
