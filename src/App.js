@@ -71,6 +71,7 @@ class App extends Component {
     - The page can be re-rendered on button click, when this.setState causes a re-render
     */
     console.log("Trigger: Render");
+    console.log("value of dog image url: ", this.state.dogImgUrl)
 
     return(
       <div>
