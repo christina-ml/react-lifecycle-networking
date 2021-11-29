@@ -10,6 +10,11 @@ class App extends Component {
     }
   }
 
+  /* Want something to happen only ONCE, when the page initially loads. And that's it. */
+  componentDidMount(){
+    console.log("Trigger: On Mount")
+  }
+
   handleIncrement=()=>{
     this.setState({
       count: this.state.count + 1,
@@ -19,7 +24,7 @@ class App extends Component {
   render(){
 
     /* think about WHEN this runs. The act of rendering. */
-    console.log("Trigger")
+    console.log("Trigger: Render")
 
     return(
       <div>
